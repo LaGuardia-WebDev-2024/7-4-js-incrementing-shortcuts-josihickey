@@ -4,9 +4,11 @@ void setup() {
 }
 
 //🎯Variable Declarations Go Here
-var leftX = 45;
-var rightX = 370;
+var leftX = 200;
+var rightX = 200;
 var sunRadius = 100;
+var speed = 1;
+var growth = 0.5;
 
 
 //🟢Draw Function - Runs on Repeat
@@ -33,7 +35,36 @@ draw = function(){
   ellipse(rightX+62, 100, 70, 60);
   ellipse(rightX-62, 100, 70, 60);
   
+  leftX -= speed;
+  rightX += speed;
+  sunRadius += growth;
+  
+  if(leftX<0){
+  speed=1;
+  };
+  
+  if (leftX>400){
+    speed=-1;
+  };
+  
+  if (rightX>400){
+    speed=-1;
+  };
+  
+  if(rightX<0){
+  speed=1;
+  };
+  
+  if(sunRadius>210){
+    growth=-0.5;
+  };
+  
+  if(sunRadius<100){
+    growth=0.5;
+  };
 }
+
+  
 
 
 //🟡Extra FUN Features Ms. Hall Added
